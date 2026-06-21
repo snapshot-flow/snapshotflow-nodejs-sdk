@@ -1,0 +1,5 @@
+dist
+node_modules
+coverage
+package-lock.json
+tsup.config.bundled_*.mjs

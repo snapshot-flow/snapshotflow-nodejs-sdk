@@ -1,0 +1,73 @@
+{
+  "name": "snapshotflow",
+  "version": "0.0.0",
+  "description": "Official TypeScript/Node.js SDK for the SnapshotFlow screenshot API.",
+  "keywords": [
+    "screenshot",
+    "screenshot-api",
+    "website-screenshot",
+    "puppeteer",
+    "pdf",
+    "snapshotflow"
+  ],
+  "license": "MIT",
+  "author": "SnapshotFlow",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snapshot-flow/snapshotflow-nodejs-sdk.git"
+  },
+  "homepage": "https://github.com/snapshot-flow/snapshotflow-nodejs-sdk#readme",
+  "bugs": {
+    "url": "https://github.com/snapshot-flow/snapshotflow-nodejs-sdk/issues"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint src test",
+    "lint:fix": "eslint src test --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "smoke": "npm run build && node scripts/smoke.mjs",
+    "check": "npm run format:check && npm run lint && npm run typecheck && npm run test",
+    "prepublishOnly": "npm run check && npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "@vitest/coverage-v8": "^3.0.0",
+    "eslint": "^9.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.3.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.4.0",
+    "typescript-eslint": "^8.0.0",
+    "vitest": "^3.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "overrides": {
+    "esbuild": "^0.25.0"
+  }
+}
